@@ -1,0 +1,26 @@
+<%-include("./section/header.ejs")%>
+<%-include("./section/navbar.ejs")%>
+    
+        <form action="/login" method="post"  >        
+                <div>
+
+                <h2>Admin Login form</h2>
+            </div>
+            <div class="form">
+                <label>Email</label>
+                <input type="text" id="email"  name="email" placeholder="enter your email">
+            </div>
+            <div class="form">
+
+                <label>Password</label>
+                <input type="text" id="password" name="password" placeholder="Enter your password">
+
+            </div>
+            <div class="form">
+                <input type="submit" class="btn" value="LOG IN">
+
+            </div>
+
+        </form>
+
+        <%-include("./section/footer.ejs")%>

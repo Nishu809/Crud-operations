@@ -1,0 +1,91 @@
+<%-include("./section/header.ejs")%>
+    <%-include("./navbar.ejs")%>
+        <%-include("./sidebar.ejs")%>
+            <div class="body-section">
+                <form action="/signup" method="post" enctype="multipart/form-data">
+                    <div>
+
+                        <h2>SignUp form</h2>
+                    </div>
+                    <div class="view-form">
+                        
+                        <div class="users">
+
+                           
+                            <div class="form-1">
+
+                                <label>Name: </label>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="form-1">
+                                <label>Job title: </label>
+                                <input type="text" id="job_title" name="job_title">
+                            </div>
+                            <div class="form-1">
+                                <label>Password</label>
+                                <input type="text" id="password" name="password">
+
+                            </div>
+                             <div>
+                                   <label>Upload your profile image:</label>
+                                   <input type="file" name="profile_img" accept="image/*"   required>
+                               </div>
+                        </div>
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Email: </label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-1">
+                                <label>Mobile: </label>
+                                <input type="text" id="mobile" name="mobile">
+                            </div>
+                            <div class="form-1">
+
+                                <label>Landline: </label>
+                                <input type="text" id="landline" name="landline">
+
+                            </div>
+                            <div class="form-1">
+
+                                <label>Team: </label>
+                                <input type="text" id="team" name="team">
+
+                            </div>
+                               
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="view-form">
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Status: </label>
+                                <input type="text" id="status" name="status">
+                            </div>
+                            <div class="form-1">
+                                <label>Role: </label>
+                                <input type="text" id="role" name="role">
+                            </div>
+                        </div>
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Role Permision: </label>
+                                <input type="text" id="user_permission" name="user_permission">
+                            </div>
+                            <div class="form-1">
+                                <label>User Access: </label>
+                                <input type="text" id="user_access" name="user_access">
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <div class="form">
+                        <input type="submit" class="btn" value="SIGN UP">
+
+                    </div>
+
+                </form>
+            </div>
+            <%-include("./section/footer.ejs")%>

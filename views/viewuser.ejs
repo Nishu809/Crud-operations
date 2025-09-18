@@ -1,0 +1,116 @@
+<%-include("./section/header.ejs")%>
+    <%-include("./navbar.ejs")%>
+        <%-include("./sidebar.ejs")%>
+
+            <div class="body-section">
+                <form method="post" enctype="multipart/form-data">
+
+
+                    <div class="Users-form">
+                        <div>
+
+                            <h1>View Form</h1>
+                        </div>
+                        <div class="view-edit">
+                            <a href="/edituser/?id=<%=data._id%>"> Edit user</a>
+
+                        </div>
+
+                        <div class="view-form">
+                      
+                            <div>
+                                <img src="../uploads/<%=data.profile_img%>">
+
+                            </div>
+                            <div class="users">
+
+
+                                <div class="form-1">
+                                    <label>Name: </label>
+                                    <h5>
+
+                                        <%=data.name%>
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+                                    <label>Job title: </label>
+                                    <h5>
+
+                                        <%=data.job_title%>
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+                                    <label>Team: </label>
+                                    <h5>
+
+                                        <%=data.team%>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="users">
+                                <div class="form-1">
+                                    <label>Email: </label>
+                                    <h5>
+
+                                        <%=data.email%>
+
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+                                    <label>Mobile: </label>
+                                    <h5>
+
+                                        <%=data.mobile%>
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+
+                                    <label>Landline: </label>
+                                    <h5>
+
+                                        <%=data.landline%>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="view-form">
+                            <div class="users">
+                                <div class="form-1">
+                                    <label>Status: </label>
+                                    <h5>
+
+                                        <%=data.status%>
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+                                    <label>Role: </label>
+                                    <h5>
+                                        <%=data.role%>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="users">
+                                <div class="form-1">
+                                    <label>Role Permisiion: </label>
+                                    <h5>
+
+                                       <%=data.user_permission%>
+                                    </h5>
+                                </div>
+                                <div class="form-1">
+                                    <label>User Access: </label>
+                                    <h5>
+                                        <%=data.user_access%>
+                                    </h5>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <%-include("./section/footer.ejs")%>

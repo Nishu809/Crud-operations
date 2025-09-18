@@ -1,0 +1,62 @@
+<div class="footer">
+    <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+
+            Debitis voluptatum illum magni repudiandae minus voluptas,
+            veniam voluptate ipsum cum iusto veritatis porro nulla? Natus p
+            ossimus magni sint tenetur nihil dolorem.</p> -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+    // A $( document ).ready() block.
+    $(document).ready(function () {
+        console.log("ready!");
+
+        document.querySelectorAll(".deluser").forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                const id = e.target.id;
+                console.log(`/delUser?id=${id}`);
+                $.ajax({
+                    url: `/delUser?id=${id}`,
+                    type: 'DELETE',
+                    success: function (result) {
+                        console.log(result);
+                        if (result.message == "success") {
+                            location.reload()
+                        }
+                    }
+                });
+            });
+        });
+
+    });
+
+
+
+    $(document).ready(function () {
+        console.log("ready!");
+
+        document.querySelectorAll(".edituser").forEach(btn => {
+            btn.addEventListener("click", function (e) {
+                const id = e.target.id;
+                console.log(`/edituser?id=${id}`);
+
+                $.ajax({
+                    url: `/edituser?id=${id}`,
+                    type: 'PUT', //  use PUT instead of EDIT
+                    success: function (result) {
+                        console.log(result);
+                        if (result.message === "success") {
+                            location.reload();
+                        }
+                    }
+                });
+            });
+        });
+    });
+</script>
+</body>
+
+</html>

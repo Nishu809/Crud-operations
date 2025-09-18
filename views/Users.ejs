@@ -1,0 +1,41 @@
+<%-include("./section/header.ejs")%>
+<%-include("./navbar.ejs")%>
+<%-include("./sidebar.ejs")%> 
+
+
+<div class="body-section">
+  <button>
+   <a href="/adduser">Add User </a>
+   </button>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    
+        <%data?.map((item,index)=>{%>      
+                        <tr>
+                <td>
+                    <%=item.name%>
+                </td>
+
+                <td>
+                    <%=item.email%>
+                </td>
+                <td>
+
+                    <a href="#" id="<%=item._id%>" class="deluser"> Delete user</a>
+                     <a href="/edituser/?id=<%=item._id%>" class="edituser"> Edit user</a>
+                       <a href="/viewuser/?id=<%=item._id%>" class="viewuser"> View user</a>
+                </td>
+            </tr>
+            <%})%>
+
+    </table>
+</div>
+
+</div>
+<%-include("./section/footer.ejs")%>

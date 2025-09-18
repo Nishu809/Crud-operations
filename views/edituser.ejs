@@ -1,0 +1,88 @@
+<%-include("./section/header.ejs")%>
+    <%-include("./navbar.ejs")%>
+        <%-include("./sidebar.ejs")%>
+            <div class="body-section">
+                <form action="/updateuser/<%=data._id%>" method="post"  >
+                    <div>
+
+                        <h2>Edit Form</h2>
+                    </div>
+                    <div class="view-form">
+                       <div>
+                            <img src="../uploads/<%=data.profile_img%>">
+
+                        </div>
+                        <div class="users">
+
+                            <div class="form-1">
+
+                                <label>Name: </label>
+                                <input type="text" id="name" name="name" value="<%=data.name%>" required>
+                            </div>
+                            <div class="form-1">
+                                <label>Job title: </label>
+                                <input type="text" id="job_title" name="job_title" value="<%=data.job_title%>" required>
+                            </div>
+                            <div class="form-1">
+                                <label>Team: </label>
+                                <input type="text" id="team" name="team" value="<%=data.team%>" required>
+
+                            </div>
+                        </div>
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Email: </label>
+                                <input type="email" id="email" name="email" value="<%=data.email%>" required>
+                            </div>
+                            <div class="form-1">
+                                <label>Mobile: </label>
+                                <input type="text" id="mobile" name="mobile" value="<%=data.mobile%>" required>
+                            </div>
+                            <div class="form-1">
+
+                                <label>Landline: </label>
+                                <input type="text" id="landline" name="landline" value="<%=data.landline%>" required>
+
+                            </div>
+                              <div>
+                                <label>Upload your profile image:</label>
+                                <input type="file" name="file"  >
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="view-form">
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Status: </label>
+                                <input type="text" id="status" name="status" value="<%=data.status%>" required>
+                            </div>
+                            <div class="form-1">
+                                <label>Role: </label>
+                                <input type="text" id="role" name="role" value="<%=data.role%>" required>
+                            </div>
+                        </div>
+                        <div class="users">
+                            <div class="form-1">
+                                <label>Role Permisiion: </label>
+                                <input type="text" id="user_permission" name="user_permission"
+                                    value="<%=data.user_permission%>" required>
+                            </div>
+                            <div class="form-1">
+                                <label>User Access: </label>
+                                <input type="text" id="user_access" name="user_access" value="<%=data.user_access%>"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form">
+                        <input type="submit" class="btn" value="SAVE">
+
+                    </div>
+
+                </form>
+            </div>
+            <%-include("./section/footer.ejs")%>
