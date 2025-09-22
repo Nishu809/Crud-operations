@@ -2,10 +2,7 @@ const user = require("../models/userModel");
 const jwt = require("jsonwebtoken");
 async function userlogin(req, res) {
   try {
-    console.log("login", req.body);
-
     let data = await user.findOne({ email: req.body.email });
-    console.log(data);
     if (data === null) {
       return res.send({ msg: "user not found" });
     }
@@ -62,14 +59,11 @@ async function signup(req, res) {
     if (req.file) {
       data.profile_img = req.file.path;
     }
-
     let usrdata = await user.findOne({ email: data.email });
-    console.log(data, usrdata);
     if (usrdata !== null) {
       return res.send({ msg: "user has already registered with this email" });
     }
     let result = await user.insertOne(data);
-    console.log(result);
     return res.redirect("/users");
   } catch (error) {
     return res.send({ msg: error.message });
@@ -86,19 +80,17 @@ async function adduser(req, res) {
 
 async function updateuser(req, res) {
   try {
-    console.log(req.body);
     let data = req.body;
+    console.log(req.body, "body");
     let id = req.params.id;
     let userData = await user.findOne({ _id: id });
-
+    console.log(req.file, "file", req.files, "filesbefroe");
     if (req.file) {
+      console.log(req.file, "file", req.files, "files");
       data.profile_img = req.file.path;
     } else {
-      if (req.file) {
-        data.profile_img = userData.profile_img;
-      }
+      data.profile_img = userData.profile_img;
     }
-
     let result = await user.updateOne(
       { _id: id },
       {
@@ -116,8 +108,6 @@ async function updateuser(req, res) {
         },
       }
     );
-    console.log(result, id);
-
     return res.redirect("/users");
   } catch (error) {
     return res.send({ msg: error.message });
@@ -150,8 +140,6 @@ async function viewuser(req, res) {
   try {
     let id = req.query.id;
     let result = await user.findOne({ _id: id });
-    console.log(result, "---result----");
-
     return res.render("./viewuser", { data: result });
   } catch (error) {
     return res.send({ msg: error.message });

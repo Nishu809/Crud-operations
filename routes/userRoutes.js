@@ -84,6 +84,7 @@ router.post(
   async (req, res, next) => {
     try {
       let imageUrl = null;
+      console.log("router",req.file,'file',req.files)
       if (req.file) {
         const result = await uploadToCloudinary(req.file.buffer);
         imageUrl = result.secure_url;
