@@ -22,10 +22,10 @@ const storage = multer.diskStorage({
       file,
       "---------------file-=-----------------------destination"
     );
-    cb(null, "/public/uploads/");
+    cb(null, "public/uploads/");
   },
   filename: (req, file, cb) => {
-    console.log(file, "---------------file-=-----------------------filname");
+    console.log(file, "---------------file-=-----------------------filname" ,__dirname);
     cb(null, file.originalname);
   },
 });
@@ -42,7 +42,7 @@ router.get("/adduser", middleware, adduser);
 router.post("/signup", upload.single("profile_img"), signup);
 router.delete("/delUser", middleware, deluser);
 router.get("/edituser", edituser);
-router.post("/updateuser/:id", middleware, updateuser);
+router.post("/updateuser/:id",  middleware, upload.single("profile_img"),updateuser);
 router.get("/viewuser", middleware, viewuser);
 
 module.exports = router;
