@@ -59,8 +59,6 @@ async function dashboard(req, res) {
 async function signup(req, res) {
   try {
     let data = req.body;
-    console.log(data);
-    console.log(req.file);
     if (req.file) {
       data.profile_img = req.file.path;
     }
@@ -89,7 +87,18 @@ async function adduser(req, res) {
 async function updateuser(req, res) {
   try {
     console.log(req.body);
+    let data = req.body;
     let id = req.params.id;
+    let userData = await user.findOne({ _id: id });
+
+    if (req.file) {
+      data.profile_img = req.file.path;
+    } else {
+      if (req.file) {
+        data.profile_img = userData.profile_img;
+      }
+    }
+
     let result = await user.updateOne(
       { _id: id },
       {
@@ -102,6 +111,7 @@ async function updateuser(req, res) {
           job_title: req.body.job_title,
           user_permission: req.body.user_permission,
           status: req.body.status,
+          profile_img: data.profile_img,
           user_access: req.body.user_access,
         },
       }
