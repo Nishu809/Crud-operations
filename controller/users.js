@@ -62,7 +62,7 @@ async function signup(req, res) {
     console.log(data);
     console.log(req.file);
     if (req.file) {
-      data.profile_img = req.file.originalname;
+      data.profile_img = req.file.path;
     }
 
     let usrdata = await user.findOne({ email: data.email });
@@ -130,8 +130,6 @@ async function edituser(req, res) {
   try {
     let id = req.query.id;
     let result = await user.findOne({ _id: id });
-    console.log(result, "---result----");
-
     return res.render("./edituser", { data: result });
   } catch (error) {
     return res.send({ msg: error.message });
