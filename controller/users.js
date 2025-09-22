@@ -32,7 +32,7 @@ async function userlogin(req, res) {
 async function getusers(req, res) {
   try {
     let data = await user.find();
-    return res.render("./home", { data: data });
+    return res.render("./home.ejs", { data: data });
   } catch (error) {
     return res.send({ msg: error });
   }
@@ -41,7 +41,7 @@ async function getusers(req, res) {
 async function findusers(req, res) {
   try {
     let data = await user.find();
-    return res.render("./users", { data: data });
+    return res.render("./users.ejs", { data: data });
   } catch (error) {
     return res.send({ msg: error });
   }
