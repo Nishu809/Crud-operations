@@ -41,7 +41,7 @@ async function getusers(req, res) {
 async function findusers(req, res) {
   try {
     let data = await user.find();
-    return res.render("./users", { data: data });
+    return res.render("./userlist", { data: data });
   } catch (error) {
     return res.send({ msg: error });
   }
