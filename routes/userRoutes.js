@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
       file,
       "---------------file-=-----------------------destination"
     );
-    cb(null, "public/uploads/");
+    cb(null, "/public/uploads/");
   },
   filename: (req, file, cb) => {
     console.log(file, "---------------file-=-----------------------filname");
